@@ -1,4 +1,4 @@
-const input: &'static [i32] = &[
+const INPUT: &'static [i32] = &[
 1863,
 1750,
 1767,
@@ -204,8 +204,8 @@ const input: &'static [i32] = &[
 fn main() {
     println!("Part 1");
     // part 1
-    for i in input {
-        for j in input {
+    for i in INPUT {
+        for j in INPUT {
             if i + j == 2020 {
                 println!("{} * {} = {}", i, j, i * j);
             }
@@ -213,9 +213,9 @@ fn main() {
     }
     println!("Part 2");
     // part 2
-    for i in input {
-        for j in input {
-            for k in input {
+    for i in INPUT {
+        for j in INPUT {
+            for k in INPUT {
                 if i + j + k == 2020 {
                     println!("{} * {} * {} = {}", i, j, k, i * j * k);
                 }
