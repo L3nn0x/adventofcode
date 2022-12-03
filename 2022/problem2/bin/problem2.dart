@@ -2,11 +2,11 @@ import 'dart:io';
 import "package:problem2/problem2.dart";
 
 Game? parseEntry(String input) {
-  if (input == "A") {
+  if (input == "A" || input == "X") {
     return Game.rock;
-  } else if (input == "B") {
+  } else if (input == "B" || input == "Y") {
     return Game.paper;
-  } else if (input == "C") {
+  } else if (input == "C" || input == "Z") {
     return Game.scissors;
   }
   return null;
