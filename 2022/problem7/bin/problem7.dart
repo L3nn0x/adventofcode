@@ -25,12 +25,25 @@ Node parseInput(File file) {
 void main(List<String> arguments) {
   var fs = parseInput(File("data.txt"));
 
-  int size = fs.fold(0, (init, node) {
-    if (node.isFolder && node.size < 100000) {
-      return init + node.size;
+  const int totalSize = 70000000;
+  const int requiredSize = 30000000;
+
+  final int usedSpace = fs.size;
+  final int spaceToFree = requiredSize - (totalSize - usedSpace);
+
+  var directories = [];
+  fs.march((node) {
+    if (node.isFolder) {
+      directories.add(node);
     }
-    return init;
   });
 
-  print(size);
+  directories.sort((a, b) => a.size.compareTo(b.size));
+
+  for (final dir in directories) {
+    if (dir.size >= spaceToFree) {
+      print(dir.size);
+      break;
+    }
+  }
 }

@@ -81,4 +81,11 @@ class Node {
     }
     return init;
   }
+
+  void march(void Function(Node) function) {
+    function(this);
+    for (final child in children) {
+      child.march(function);
+    }
+  }
 }
