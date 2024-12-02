@@ -2,14 +2,15 @@ import argparse
 import importlib
 import sys
 
-def main(day: int, input_data: list[str]):
+def main(day: int, part: int, input_data: list[str]):
     day = "day" + str(day)
     module = importlib.import_module(day)
-    module.run(input_data)
+    module.run(part, input_data)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Advent of Code 2024")
     parser.add_argument("day", type=int, help="The day to run.")
+    parser.add_argument("part", type=int, help="The part of the day.")
     parser.add_argument("-f", "--file", type=str, help="The input data file.")
 
     args = parser.parse_args()
@@ -27,4 +28,4 @@ if __name__ == "__main__":
         print("No input data provided, either pipe some data or provice a filename")
         exit(1)
     data = [line.strip() for line in raw_data.splitlines() if line.strip()]
-    main(args.day, data)
+    main(args.day, args.part, data)

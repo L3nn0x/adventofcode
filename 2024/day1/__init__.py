@@ -1,4 +1,14 @@
-def run(input_data: list[str]):
+def part1(l1: list[int], l2: list[int]) -> int:
+    return sum(abs(a - b) for a, b in zip(l1, l2))
+
+def part2(l1: list[int], l2: list[int]) -> int:
+    score = 0
+    for e in l1:
+        score += e * l2.count(e)
+    return score
+
+
+def run(part: int, input_data: list[str]):
     l1 = []
     l2 = []
     for line in input_data:
@@ -7,4 +17,4 @@ def run(input_data: list[str]):
         l2.append(int(data[1].strip()))
     l1.sort()
     l2.sort()
-    print(sum(abs(a - b) for a, b in zip(l1, l2)))
+    print(part1(l1, l2) if part == 1 else part2(l1, l2))
