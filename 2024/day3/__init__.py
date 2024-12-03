@@ -29,8 +29,6 @@ def parse_mul(data: str) -> (Optional[int], int):
     return (n1 * n2, index+1)
 
 def parse_conditional(data: str) -> (Optional[bool], int):
-    if data[:2] != "do":
-        return (None, 0)
     if data[:4] == "do()":
         return (True, 4)
     if data[:7] == "don't()":
