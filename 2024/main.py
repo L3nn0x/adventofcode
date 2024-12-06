@@ -27,5 +27,5 @@ if __name__ == "__main__":
     else:
         print("No input data provided, either pipe some data or provice a filename")
         exit(1)
-    data = [line.strip() for line in raw_data.splitlines() if line.strip()]
+    data = [line.strip() for line in raw_data.splitlines()]
     main(args.day, args.part, data)
